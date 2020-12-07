@@ -43,7 +43,7 @@ func (p Problem) Solve() []string {
 			}
 			break
 		}
-		if alphabetIndizes[0] > len(p.Alphabet) {
+		if alphabetIndizes[0] >= len(p.Alphabet) {
 			return nil
 		}
 	}
