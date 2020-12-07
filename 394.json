@@ -1,0 +1,30 @@
+{
+  "alphabet": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+  "length": 3,
+  "conditions": [
+    {
+      "type": "placement",
+      "combination": ["2", "9", "1"],
+      "correct_and_well_placed": 1
+    },
+    {
+      "type": "placement",
+      "combination": ["2", "4", "5"],
+      "correct_and_wrong_placed": 1
+    },
+    {
+      "type": "placement",
+      "combination": ["4", "6", "3"],
+      "correct_and_wrong_placed": 2
+    },
+    {
+      "type": "placement",
+      "combination": ["5", "7", "8"]
+    },
+    {
+      "type": "placement",
+      "combination": ["5", "6", "9"],
+      "correct_and_wrong_placed": 1
+    }
+  ]
+}
