@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/GodsBoss/code-394/pkg/code394"
 )
@@ -32,5 +33,9 @@ func main() {
 			},
 		},
 	}
-	fmt.Println(problem.Solve())
+	solution := problem.Solve()
+	if solution == nil {
+		fmt.Println("No solution found.")
+	}
+	fmt.Printf("Solution: %s\n", strings.Join(solution, " "))
 }
