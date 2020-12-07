@@ -1,37 +1,31 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"os"
 	"strings"
 
 	"github.com/GodsBoss/code-394/pkg/code394"
 )
 
 func main() {
-	problem := code394.Problem{
-		Alphabet: code394.Digits(),
-		Length:   3,
-		Conditions: []code394.Condition{
-			code394.PlacementCondition{
-				Combination:          []string{"2", "9", "1"},
-				CorrectAndWellPlaced: 1,
-			},
-			code394.PlacementCondition{
-				Combination:           []string{"2", "4", "5"},
-				CorrectAndWrongPlaced: 1,
-			},
-			code394.PlacementCondition{
-				Combination:           []string{"4", "6", "3"},
-				CorrectAndWrongPlaced: 2,
-			},
-			code394.PlacementCondition{
-				Combination: []string{"5", "7", "8"},
-			},
-			code394.PlacementCondition{
-				Combination:           []string{"5", "6", "9"},
-				CorrectAndWrongPlaced: 1,
-			},
-		},
+	if len(os.Args) < 2 {
+		fmt.Println("Usage: code394 <file>")
+		os.Exit(0)
+	}
+	filename := os.Args[1]
+	data, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Printf("Error reading file '%s': %+v\n", filename, err)
+		os.Exit(1)
+	}
+	var problem code394.Problem
+	err = json.Unmarshal(data, &problem)
+	if err != nil {
+		fmt.Printf("Error unmarshaling from JSON: %+v\n", err)
+		os.Exit(1)
 	}
 	solution := problem.Solve()
 	if solution == nil {
