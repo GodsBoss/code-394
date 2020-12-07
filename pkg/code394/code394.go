@@ -50,9 +50,9 @@ func (p Problem) Solve() []string {
 }
 
 type PlacementCondition struct {
-	Combination           []string
-	CorrectAndWellPlaced  int
-	CorrectAndWrongPlaced int
+	Combination           []string `json:"combination"`
+	CorrectAndWellPlaced  int      `json:"correct_and_well_placed"`
+	CorrectAndWrongPlaced int      `json:"correct_and_wrong_placed"`
 }
 
 func (pc PlacementCondition) IsValid(code []string) bool {
